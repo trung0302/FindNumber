@@ -1,0 +1,39 @@
+/* Mobile */
+@media (max-width: 739px) {
+    .between {
+        font-size: 16px;
+    }
+
+    .again {
+        margin: 20px 0 20px 20px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    main {
+        padding: 100px 0 0 0;
+    }
+
+    .left {
+        margin-left: 20px;
+    }
+
+    .right {
+        flex: 2;
+        font-size: 20px;
+        margin-right: 8px;
+        margin-left: 50px;
+    }
+
+    .guess {
+        font-size: 20px;
+        width: 120px;
+        padding: 12px 0;
+    }
+
+    .check {
+        margin-left: 0;
+    }
+}
