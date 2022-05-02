@@ -1,37 +1,32 @@
 'use strict';
 
-var scretNumber = Math.floor(Math.random() * 20) + 1;
 // document.querySelector('.number').innerText = scretNumber;
+var scretNumber = Math.floor(Math.random() * 20) + 1;
 var score = Number(document.querySelector('.score').innerText);
+
+function displayMessage(message) {
+    document.querySelector('.message').innerText = message;
+}
 
 function checkResult() {
     const guess = Number(document.querySelector('.guess').value);
 
     if (!guess) {
-        document.querySelector('.message').innerText = '🚫  Please fill a Number!';
+        displayMessage('🚫 Please fill a Number!');
     }
-    else if (guess > scretNumber) {
+    else if (guess !== scretNumber) {
         if (score > 1) {
-            document.querySelector('.message').innerText = '❌ Too high!';
+            // document.querySelector('.message').innerText = guess > scretNumber ? '❌ Too high!' : '❌ Too small!';
+            displayMessage(guess > scretNumber ? '❌ Too high!' : '❌ Too small!');
             document.querySelector('.score').innerText = --score;
         } 
         else {
-            document.querySelector('.message').innerText = '😥 You lose the game!!!';
-            document.querySelector('.score').innerText = 0;
-        }
-    }
-    else if (guess < scretNumber) {
-        if (score > 1) {
-            document.querySelector('.message').innerText = '❌ Too small!';
-            document.querySelector('.score').innerText = --score;
-        } 
-        else {
-            document.querySelector('.message').innerText = '😥 You lose the game!!!'
+            displayMessage('😥 You lose the game!!!');
             document.querySelector('.score').innerText = 0;
         }
     }
     else {
-        document.querySelector('.message').innerText = '🎉 Correct Number!';
+        displayMessage('🎉 Correct Number!');
         document.querySelector('body').style.backgroundColor = '#45B649';
         document.querySelector('.number').innerText = scretNumber;
         var highscore = Number(document.querySelector('.highscore').innerText);
@@ -44,9 +39,9 @@ function checkResult() {
 function playAgain() {
     scretNumber = Math.floor(Math.random() * 21) + 1;
     score = 10;
+    displayMessage('Start Guessing...');
     document.querySelector('.number').innerText = '?';
     document.querySelector('.guess').value = '';
-    document.querySelector('.message').innerText = 'Start Guessing...';
     document.querySelector('.score').innerText = score;
     document.querySelector('body').style.backgroundColor = '#000000e6';
 }
