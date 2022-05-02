@@ -13,19 +13,16 @@ function checkResult() {
 
     if (!guess) {
         displayMessage('🚫 Please fill a Number!');
-    }
-    else if (guess !== scretNumber) {
+    } else if (guess !== scretNumber) {
         if (score > 1) {
             // document.querySelector('.message').innerText = guess > scretNumber ? '❌ Too high!' : '❌ Too small!';
             displayMessage(guess > scretNumber ? '❌ Too high!' : '❌ Too small!');
             document.querySelector('.score').innerText = --score;
-        } 
-        else {
+        } else {
             displayMessage('😥 You lose the game!!!');
             document.querySelector('.score').innerText = 0;
         }
-    }
-    else {
+    } else {
         displayMessage('🎉 Correct Number!');
         document.querySelector('body').style.backgroundColor = '#45B649';
         document.querySelector('.number').innerText = scretNumber;
